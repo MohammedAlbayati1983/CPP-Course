@@ -1,0 +1,17 @@
+#include <iostream>
+#include<cstdlib>
+using namespace std;
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    cout << randomNumber(25, 45) << endl;
+    cout << randomNumber(25, 45) << endl;
+    cout << randomNumber(25, 45) << endl;
+}
