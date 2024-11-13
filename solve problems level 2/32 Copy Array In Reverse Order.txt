@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int readPositiveNumber(string Message) {
+    int number = 0;
+    do {
+        cout << Message;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+int* createArray(int length) {
+    int* array = new int[length];
+    for (int i = 0; i < length; i++) {
+        array[i] = randomNumber(0, 100);
+    }
+    return array;
+}
+
+int* reversedArray(int* array, int length) {
+    int* reversedOrder = new int[length];
+    for (int i = 0; i < length; i++) {
+        reversedOrder[i] = array[length - 1 - i];
+    }
+    return reversedOrder;
+}
+
+void printArray(int* array,int length) {
+    for (int i = 0; i < length ; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    int length = readPositiveNumber("Enter the number of elements of the array: ");
+    int* array = createArray(length);
+    int* array2 = reversedArray(array, length);
+    cout << "Array 1 elements:\n";
+    printArray(array, length);
+    cout << "\nArray 2 elements after coping array 1 in reversed order:\n";
+    printArray(array2, length);
+    delete[] array;
+    delete[] array2;
+    return 0;
+}
