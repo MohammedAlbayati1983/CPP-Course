@@ -12,7 +12,7 @@ int readNumber()
 	cin >> number;
 	return number;
 }
-void addNewNumberInExstingArray(int number, int array[100], int& arrLength)
+void addArrayElement(int number, int array[100], int& arrLength)
 {
 	array[arrLength] = number;
 	arrLength++;
@@ -22,7 +22,7 @@ void inputUserNumbersInArray(int array[100], int& arrLength)
 	bool addMore = true;
 	do
 	{
-		addNewNumberInExstingArray(readNumber(), array, arrLength);
+		addArrayElement(readNumber(), array, arrLength);
 		cout << "\nDo you want to add more numbers? [0]:No, [1]:yes: ";
 		cin >> addMore;
 	} while (addMore);
