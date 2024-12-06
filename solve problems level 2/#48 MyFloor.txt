@@ -1,0 +1,32 @@
+/*
+* Problem: write a program to print floor of numbers, don't use built in
+ floor function.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+int myFloor(float number) {
+	if (number > 0)
+		return int(number);
+	else
+		return int(number) - 1;
+}
+
+
+int main() {
+
+	float number = readNumber("Enter your number: ");
+	cout << "\nMy floor result: " << myFloor(number);
+	cout << "\nC++ floor result: " << floor(number) << endl;
+
+	return 0;
+}
