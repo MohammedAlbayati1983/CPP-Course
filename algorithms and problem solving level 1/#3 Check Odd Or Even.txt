@@ -1,0 +1,38 @@
+/*
+* Problem: write a program to check number type odd or even.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+enum enNumberType { Odd = 1, Even = 2 };
+
+int readNumber() {
+	int number;
+	cout << "\nenter your number: ";
+	cin >> number;
+	return number;
+}
+
+enNumberType checkNumberType(int number) {
+	int result = number % 2;
+	if (result == 0)
+		return Even;
+	else
+		return Odd;
+}
+
+void printNumberType(enNumberType numberType) {
+	if (numberType == Even)
+		cout << "\nNumber is Even!!\n";
+	else
+		cout << "\nNumber is Odd!!\n";
+}
+
+int main() {
+
+	printNumberType(enNumberType(readNumber()));
+
+	return 0;
+}
