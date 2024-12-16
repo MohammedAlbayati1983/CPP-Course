@@ -1,0 +1,39 @@
+/*
+* Problem: write a program to print Sqrt of numbers, don't use built in
+ Sqrt function.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+float mySqrt(float number) {
+	//1st solution
+	return pow(number, .5);
+
+	//2nd solution
+	//int halfNumber = number / 2;
+	//for (int i = 1; i < halfNumber; i++) {
+	//	if (i * i == number)
+	//		return i;
+	//	else if (i * i > number)
+	//		return i - 0.5;
+	//}
+}
+
+
+int main() {
+
+	float number = readNumber("Enter your number: ");
+	cout << "\nMy Sqrt result: " << mySqrt(number);
+	cout << "\nC++ Sqrt result: " << sqrt(number) << endl;
+
+	return 0;
+}

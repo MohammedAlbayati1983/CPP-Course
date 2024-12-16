@@ -1,0 +1,61 @@
+/*
+* Problem: write a program to fill array with max size 100 with random numbers form
+* 1 to 100, then print the count of odd numbers.
+*/
+
+#include <iostream>
+using namespace std;
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int readPositiveNumber(string Message) {
+    int number = 0;
+    do {
+        cout << Message;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+void fillArrayWithRandomNumbers(int arr[100], int arrLength) {
+    for (int i = 0; i < arrLength; i++) {
+        arr[i] = randomNumber(0, 100);
+    }
+}
+
+bool isOddNumber(int number) {
+    return number % 2 != 0;
+}
+
+short countOddNumbersInArray(int array[100], int arrLength) {
+    short count = 0;
+    for (int i = 0; i < arrLength; i++) {
+        if (isOddNumber(array[i]))
+            count++;
+    }
+    return count;
+}
+
+void printArray(int array[100], int length) {
+    cout << "Array Elements:\n";
+    for (int i = 0; i < length; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    int arrLength = readPositiveNumber("Enter the number of elements of the array: ");
+    int array[100];
+    fillArrayWithRandomNumbers(array, arrLength);
+    printArray(array, arrLength);
+    cout << "\nOdd numbers count is: " << countOddNumbersInArray(array, arrLength);
+    
+    return 0;
+}

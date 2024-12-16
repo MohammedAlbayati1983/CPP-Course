@@ -1,0 +1,62 @@
+/*
+* Problem: write a program to fill array with max size 100 with random numbers form
+* -100 to 100, then print the count of negative numbers.
+*/
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int readPositiveNumber(string Message) {
+    int number = 0;
+    do {
+        cout << Message;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+void fillArrayWithRandomNumbers(int arr[100], int arrLength) {
+    for (int i = 0; i < arrLength; i++) {
+        arr[i] = randomNumber(-100, 100);
+    }
+}
+
+bool isNegativeNumber(int number) {
+    return number < 0;
+}
+
+short countNegativeNumbersInArray(int array[100], int arrLength) {
+    short count = 0;
+    for (int i = 0; i < arrLength; i++) {
+        if (isNegativeNumber(array[i]))
+            count++;
+    }
+    return count;
+}
+
+void printArray(int array[100], int length) {
+    cout << "Array Elements:\n";
+    for (int i = 0; i < length; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    int arrLength = readPositiveNumber("Enter the number of elements of the array: ");
+    int array[100];
+    fillArrayWithRandomNumbers(array, arrLength);
+    printArray(array, arrLength);
+    cout << "\nNegative numbers count is: " << countNegativeNumbersInArray(array, arrLength);
+    
+    return 0;
+}

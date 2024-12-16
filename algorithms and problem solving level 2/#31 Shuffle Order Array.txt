@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+void swap(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int readPositiveNumber(string Message) {
+    int number = 0;
+    do {
+        cout << Message;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+int* createArray(int length) {
+    int* array = new int[length];
+    for (int i = 0; i < length; i++) {
+        array[i] = i + 1;
+    }
+    return array;
+}
+
+int* shuffleArray(int* array, int length) {
+    for (int i = 0; i < length; i++) {
+        int randomIndex = randomNumber(0, length - 1);
+        swap(array[i], array[randomIndex]);
+    }
+    return array;
+}
+
+void printArray(int* array,int length) {
+    for (int i = 0; i < length ; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    int length = readPositiveNumber("Enter the number of elements of the array: ");
+    int* array = createArray(length);
+    cout << "Array elements befor shuffle:\n";
+    printArray(array, length);
+    cout << "\nArray elements after shuffle:\n";
+    shuffleArray(array, length);
+    printArray(array, length);
+    delete[] array;
+    return 0;
+}

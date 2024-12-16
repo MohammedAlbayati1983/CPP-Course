@@ -1,0 +1,39 @@
+/*
+* Problem: write a program to print ceil of numbers, don't use built in
+ ceil function.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+float getFractionPart(float number) {
+	return number - int(number);
+}
+
+int myCeil(float number) {
+	if (abs(getFractionPart(number)) > 0) {
+		if (number > 0)
+			return int(number) + 1;
+		else
+			return int(number);
+	}
+	return number;
+}
+
+
+int main() {
+
+	float number = readNumber("Enter your number: ");
+	cout << "\nMy ceil result: " << myCeil(number);
+	cout << "\nC++ ceil result: " << ceil(number) << endl;
+
+	return 0;
+}

@@ -1,0 +1,18 @@
+/*
+* Problem: write a program to print your name on screen.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+void printName(string name) {
+	cout << "\nYour name is: " << name << endl;
+}
+
+int main() {
+
+	printName("Mohammed");
+
+	return 0;
+}

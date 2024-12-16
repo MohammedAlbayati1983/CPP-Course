@@ -1,0 +1,36 @@
+/*
+* Problem: write a program to print absolute of numbers, don't use built in
+ absolute function.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+bool isNegativeNumber(float number) {
+	return number < 0;
+}
+
+float myAbsoluteFuction(float number) {
+	if (isNegativeNumber(number))
+		return number * -1;
+	else
+		return number;
+}
+
+
+int main() {
+
+	float number = readNumber("Enter your number: ");
+	cout << "\nMy absolute result: " << myAbsoluteFuction(number);
+	cout << "\nC++ absolute result: " << abs(number) << endl;
+
+	return 0;
+}

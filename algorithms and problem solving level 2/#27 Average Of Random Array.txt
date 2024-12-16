@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int readPositiveNumber(string Message) {
+    int number = 0;
+    do {
+        cout << Message;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+int* createArray(int length) {
+    int* array = new int[length];
+    for (int i = 0; i < length; i++) {
+        array[i] = randomNumber(1, 100);
+    }
+    return array;
+}
+
+int sumOfRandomArray(int* array, int length) {
+    int sum = 0;
+    for (int i = 0; i < length; i++) {
+        sum += array[i];
+    }
+    return sum;
+}
+
+float averageOfRandomArray(int* array, int length) {
+    return (float)sumOfRandomArray(array, length) / length;
+}
+
+void printArray(int* array,int length) {
+    cout << "Array Elements: ";
+    for (int i = 0; i < length ; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    int length = readPositiveNumber("Enter the number of elements of the array: ");
+    int* myArray = createArray(length);
+    printArray(myArray, length);
+    cout << "Average of all Numbers is: " << averageOfRandomArray(myArray,length) << endl;
+    delete[] myArray;
+    return 0;
+}

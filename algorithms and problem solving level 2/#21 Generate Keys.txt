@@ -1,0 +1,89 @@
+#include <iostream>
+#include<cstdlib>
+using namespace std;
+
+int readPositiveNumber(string message) {
+    int number;
+    cout << message;
+    cin >> number;
+    if (number >= 0)
+        return number;
+}
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+enum enCharType {
+    SmallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4
+};
+
+char getRandomCharacter(enCharType charType) {
+    switch (charType)
+    {
+    case SmallLetter:
+        return char(randomNumber(97, 122));
+        break;
+    case CapitalLetter:
+        return char(randomNumber(65, 90));
+        break;
+    case SpecialCharacter:
+        return char(randomNumber(32, 47));
+        break;
+    case Digit:
+        return char(randomNumber(48, 57));
+        break;
+    }
+}
+
+string generateWord(enCharType charType, short length) {
+    string word;
+    for (int i = 1; i <= length; i++) {
+        word += getRandomCharacter(charType);
+    }
+    return word;
+}
+
+string generateKey(short numberOfPartKey) {
+    string key;
+    for (int i = 1; i <= numberOfPartKey; i++) {
+        key += generateWord(CapitalLetter, 4);
+        if (i == 4)
+            continue;
+        key += '-';
+    }
+    return key;
+}
+
+void generateKeys(int numberOfKeys) {
+    for (int i = 1; i <= numberOfKeys; i++) {
+        cout << "Key [" << i << "] : " << generateKey(4) << endl;
+    }
+}
+
+//void generateKeys(int number) {
+//    string key = "";
+//    for (int i = 1; i <= number; i++) {
+//        for (int j = 1; j <= 4; j++) {
+//            for (int k = 1; k <= 4; k++) {
+//                key += char(randomNumber(65, 90));
+//            }
+//            if (j == 4)
+//                continue;
+//            key += '-';
+//        }
+//        cout << "Key [" << i << "] : " << key << endl;
+//        key = "";
+//    }
+//}
+
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    generateKeys(readPositiveNumber("Enter how many keys you want to generate: "));
+    //generateKeys(readPositiveNumber("Enter how many keys you want to generate: "));
+    return 0;
+}

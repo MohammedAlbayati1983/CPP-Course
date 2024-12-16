@@ -1,0 +1,61 @@
+/*
+* Problem: write a program to fill array with random numbers from 1 to 100,
+* read number and return its index in array if found and otherwise return sadface :-(
+*/
+
+#include <iostream>
+#include<cstdlib>
+#include<string>
+using namespace std;
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int readPositiveNumber(string Message) {
+    int number = 0;
+    do {
+        cout << Message;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+int* createArray(int length) {
+    int* array = new int[length];
+    for (int i = 0; i < length; i++) {
+        array[i] = randomNumber(0,100);
+    }
+    return array;
+}
+
+string searchNumberInArray(int* array,int number,int length) {
+    for (int i = 0; i < length; i++) {
+        if (number == array[i])
+            return "\nThe number found at postion: " + to_string(i) + "\nThe number foud its order: " + to_string(i + 1);
+    }
+    return "\nThe number is not found :-(";
+}
+
+void printArray(int* array, int length) {
+    for (int i = 0; i < length; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    int length = readPositiveNumber("Enter how many elements you want in array: ");
+    int* array = createArray(length);
+    cout << "Array elements:\n";
+    printArray(array, length);
+    int numberLookingFor = readPositiveNumber("Please enter a number to search for? ");
+    cout << "Number you are looking for is: " << numberLookingFor;
+    cout << searchNumberInArray(array, numberLookingFor, length);
+    delete[] array;
+    return 0;
+}

@@ -1,0 +1,45 @@
+/*
+* Problem: write a program to dynamically read numbers and save them in an array,
+* allocate Simi-dynamic array length.
+*/
+
+#include <iostream>
+using namespace std;
+int readNumber()
+{
+	int number;
+	cout << "\nPlease enter a number? ";
+	cin >> number;
+	return number;
+}
+void addArrayElement(int number, int array[100], int& arrLength)
+{
+	array[arrLength] = number;
+	arrLength++;
+}
+void inputUserNumbersInArray(int array[100], int& arrLength)
+{
+	bool addMore = true;
+	do
+	{
+		addArrayElement(readNumber(), array, arrLength);
+		cout << "\nDo you want to add more numbers? [0]:No, [1]:yes: ";
+		cin >> addMore;
+	} while (addMore);
+}
+void PrintArray(int arr[100], int arrLength)
+{
+	for (int i = 0; i < arrLength; i++)
+		cout << arr[i] << " ";
+	cout << "\n";
+}
+
+int main()
+{
+	int array[100], arrLength = 0;
+	inputUserNumbersInArray(array, arrLength);
+	cout << "\nArray Length: " << arrLength << endl;
+	cout << "Array elements: ";
+	PrintArray(array, arrLength);
+	return 0;
+}

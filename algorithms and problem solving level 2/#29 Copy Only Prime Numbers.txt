@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+enum enPrimNotPrime { Prime = 1, NotPrime = 2 };
+enPrimNotPrime CheckPrime(int Number)
+{
+    int M = round(Number / 2);
+    for (int Counter = 2; Counter <= M; Counter++)
+    {
+        if (Number % Counter == 0)
+            return NotPrime;
+    }
+    return Prime;
+}
+
+int randomNumber(int from, int to) {
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int readPositiveNumber(string Message) {
+    int number = 0;
+    do {
+        cout << Message;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+int* createArray(int length) {
+    int* array = new int[length];
+    for (int i = 0; i < length; i++) {
+        array[i] = randomNumber(1, 100);
+    }
+    return array;
+}
+
+int* copyOnlyPrimeNumbersInArray(int* array, int length, int& primeCount) {
+    int* primeArray = new int[length];
+    for (int i = 0; i < length; i++) {
+        if (CheckPrime(array[i]) == Prime) {
+            primeArray[primeCount] = array[i];
+            primeCount++;
+        }
+    }
+    return primeArray;
+}
+
+void printArray(int* array,int length) {
+    for (int i = 0; i < length ; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    //Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    int primeCount = 0;
+    int length = readPositiveNumber("Enter the number of elements of the array: ");
+    int* array1 = createArray(length);
+    int* array2 = copyOnlyPrimeNumbersInArray(array1, length, primeCount);
+    cout << "Array 1 elements:\n";
+    printArray(array1, length);
+    cout << "\nPrime Numbers in Array 2:\n";
+    printArray(array2, primeCount);
+    delete[] array1;
+    delete[] array2;
+    return 0;
+}
