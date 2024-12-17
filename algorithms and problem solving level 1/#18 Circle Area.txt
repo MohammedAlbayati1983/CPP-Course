@@ -1,0 +1,32 @@
+/*
+* Problem: write a program to Calculate circle area then print it on the screen.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readRadious() {
+	float r;
+	cout << "\nenter radious: ";
+	cin >> r;
+	return r;
+}
+
+float circleArea(float r) {
+	const float pi = 3.141592653589793238;
+	float area = pow(r, 2) * pi;
+	return area;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of circle is: " << area << endl;
+}
+
+
+int main() {
+
+	printResult(circleArea(readRadious()));
+
+	return 0;
+}
