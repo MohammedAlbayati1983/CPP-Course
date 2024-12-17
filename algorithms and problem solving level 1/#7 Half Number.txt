@@ -1,0 +1,30 @@
+/*
+* Problem: write a program to print half the entered number
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+int readNumber() {
+	int number;
+	cout << "\nenter the number: ";
+	cin >> number;
+	return number;
+}
+
+float calculateHalfNumber(int number) {
+	return (float)number / 2;
+}
+
+void printResult(int number) {
+	string result = "\nHalf the entered number " + to_string(number)+" is: " + to_string(calculateHalfNumber(number));
+	cout << result << endl;
+}
+
+int main() {
+
+	printResult(readNumber());
+
+	return 0;
+}
