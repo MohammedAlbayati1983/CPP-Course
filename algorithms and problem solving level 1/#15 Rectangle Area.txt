@@ -1,0 +1,32 @@
+/*
+* Problem: write a program to Calculate the area of ​​a rectangle.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+void readSides(float& a, float& b) {
+	cout << "\nenter rectangle width: ";
+	cin >> a;
+	cout << "\nenter rectangle length: ";
+	cin >> b;
+}
+
+float calculateAreaRectangle(float a, float b) {
+	return a * b;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of a rectangle is: " << area << endl;
+}
+
+
+int main() {
+
+	float a, b;
+	readSides(a, b);
+	printResult(calculateAreaRectangle(a, b));
+
+	return 0;
+}
