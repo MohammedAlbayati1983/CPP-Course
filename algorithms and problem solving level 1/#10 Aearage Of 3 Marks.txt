@@ -23,8 +23,8 @@ float calculateAverage(int mark1, int mark2, int mark3) {
 	return (float)sumOf3Marks(mark1 , mark2 , mark3) / 3;
 }
 
-void printResult(int total) {
-	cout << "\nThe average of 3 marks is: " << total << endl;
+void printResult(float average) {
+	cout << "\nThe average of 3 marks is: " << average << endl;
 }
 
 int main() {
