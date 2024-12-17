@@ -1,0 +1,37 @@
+/*
+* Problem: write a program to print average of 3 marks.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+void readMarks(int& mark1,int& mark2,int& mark3) {
+	cout << "\nenter mark 1: ";
+	cin >> mark1;
+	cout << "\nenter mark 2: ";
+	cin >> mark2;
+	cout << "\nenter mark 3: ";
+	cin >> mark3;
+}
+
+int sumOf3Marks(int mark1, int mark2, int mark3) {
+	return mark1 + mark2 + mark3;
+}
+
+float calculateAverage(int mark1, int mark2, int mark3) {
+	return (float)sumOf3Marks(mark1 , mark2 , mark3) / 3;
+}
+
+void printResult(int total) {
+	cout << "\nThe average of 3 marks is: " << total << endl;
+}
+
+int main() {
+
+	int mark1,mark2,mark3;
+	readMarks(mark1, mark2, mark3);
+	printResult(calculateAverage(mark1, mark2, mark3));
+
+	return 0;
+}
