@@ -6,9 +6,9 @@
 #include<cmath>
 using namespace std;
 
-float readRadious() {
+float readRadius() {
 	float r;
-	cout << "\nenter radious: ";
+	cout << "\nenter radius: ";
 	cin >> r;
 	return r;
 }
@@ -26,7 +26,7 @@ void printResult(float area) {
 
 int main() {
 
-	printResult(circleArea(readRadious()));
+	printResult(circleArea(readRadius()));
 
 	return 0;
 }
