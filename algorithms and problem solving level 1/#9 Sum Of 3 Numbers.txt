@@ -1,0 +1,33 @@
+/*
+* Problem: write a program to print result of sumation of 3 numbers.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+void readNumbers(int& num1,int& num2,int& num3) {
+	cout << "\nenter number 1: ";
+	cin >> num1;
+	cout << "\nenter number 2: ";
+	cin >> num2;
+	cout << "\nenter number 3: ";
+	cin >> num3;
+}
+
+int sumOf3Numbers(int num1, int num2, int num3) {
+	return num1 + num2 + num3;
+}
+
+void printResult(int total) {
+	cout << "\nThe total sum of numbers is: " << total << endl;
+}
+
+int main() {
+
+	int num1,num2,num3;
+	readNumbers(num1, num2, num3);
+	printResult(sumOf3Numbers(num1, num2, num3));
+
+	return 0;
+}
