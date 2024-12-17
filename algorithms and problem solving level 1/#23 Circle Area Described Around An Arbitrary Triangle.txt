@@ -1,0 +1,39 @@
+/*
+* Problem: write a program to Calculate circle Area circle Described Around
+An Arbitrary Triangle then print it on the screen.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+void readTriangleData(float& a, float& b, float& c) {
+	cout << "\nenter triangle side A: ";
+	cin >> a;
+	cout << "\nenter triangle side B: ";
+	cin >> b;
+	cout << "\nenter triangle side C: ";
+	cin >> c;
+}
+
+float circleAreaByArbitraryTriangle(float a, float b, float c) {
+	const float pi = 3.141592653589793238;
+	float p = (a + b + c) / 2;
+	float t = (a * b * c) / (4 * sqrt(p * (p - a) * (p - b) * (p - c)));
+	float area = pi * pow(t, 2);
+	return area;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of circle is: " << area << endl;
+}
+
+
+int main() {
+
+	float a, b, c;
+	readTriangleData(a, b, c);
+	printResult(circleAreaByArbitraryTriangle(a, b, c));
+
+	return 0;
+}

@@ -1,0 +1,29 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int readAge() {
+	int age;
+	cout << "\nenter the age: ";
+	cin >> age;
+	return age;
+}
+
+bool validateNumberInRange(int number, int from, int to) {
+	return (number >= from && number <= to);
+}
+
+void printResult(int age) {
+	if (validateNumberInRange(age, 18, 45))
+		cout << endl << age << " is a valid age.\n";
+	else
+		cout << endl << age << " is invalid age.\n";
+}
+
+
+int main() {
+
+	printResult(readAge());
+
+	return 0;
+}

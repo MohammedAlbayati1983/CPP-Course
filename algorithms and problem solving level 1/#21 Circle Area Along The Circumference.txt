@@ -1,0 +1,33 @@
+/*
+* Problem: write a program to Calculate circle area Along The Circumference
+  then print it on the screen.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readCircumference() {
+	float l;
+	cout << "\nenter Circumference L: ";
+	cin >> l;
+	return l;
+}
+
+float circleAreaByCircumference(float l) {
+	const float pi = 3.141592653589793238;
+	float area = pow(l, 2) / (4 * pi);
+	return area;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of circle is: " << area << endl;
+}
+
+
+int main() {
+
+	printResult(circleAreaByCircumference(readCircumference()));
+
+	return 0;
+}

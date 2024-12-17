@@ -1,0 +1,33 @@
+/*
+* Problem: write a program to Calculate circle area inscribed in a square
+  then print it on the screen.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readSquareSide() {
+	float a;
+	cout << "\nenter square side A: ";
+	cin >> a;
+	return a;
+}
+
+float circleAreaInScribedInSquare(float a) {
+	const float pi = 3.141592653589793238;
+	float area = (pi * pow(a, 2)) / 4;
+	return area;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of circle is: " << area << endl;
+}
+
+
+int main() {
+
+	printResult(circleAreaInScribedInSquare(readSquareSide()));
+
+	return 0;
+}

@@ -1,0 +1,35 @@
+/*
+* Problem: write a program to Calculate circle Area Inscribed In A Isosceles
+  Triangle then print it on the screen.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+void readTriangleData(float& a, float& b) {
+	cout << "\nenter triangle side A: ";
+	cin >> a;
+	cout << "\nenter triangle side B: ";
+	cin >> b;
+}
+
+float circleAreaByIsoscelesTriangle(float a,float b) {
+	const float pi = 3.141592653589793238;
+	float area = pi * (pow(b, 2) / 4) * ((2 * a - b) / (2 * a + b));
+	return area;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of circle is: " << area << endl;
+}
+
+
+int main() {
+
+	float a, b;
+	readTriangleData(a, b);
+	printResult(circleAreaByIsoscelesTriangle(a,b));
+
+	return 0;
+}

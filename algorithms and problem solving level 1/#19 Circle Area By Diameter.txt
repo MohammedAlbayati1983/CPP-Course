@@ -1,0 +1,33 @@
+/*
+* Problem: write a program to Calculate circle area through diameter
+  then print it on the screen.
+*/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float readDiameter() {
+	float d;
+	cout << "\nenter diameter D: ";
+	cin >> d;
+	return d;
+}
+
+float circleAreaByDiameter(float d) {
+	const float pi = 3.141592653589793238;
+	float area = (pow(d, 2) * pi) / 4;
+	return area;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of circle is: " << area << endl;
+}
+
+
+int main() {
+
+	printResult(circleAreaByDiameter(readDiameter()));
+
+	return 0;
+}

@@ -1,0 +1,37 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int readAge() {
+	int age;
+	cout << "\nplease enter age between 18 and 45: ";
+	cin >> age;
+	return age;
+}
+
+bool validateNumberInRange(int number, int from, int to) {
+	return (number >= from && number <= to);
+}
+
+int readUntilNumberBetween(int from, int to) {
+	int number = 0;
+	do {
+		number = readAge();
+		if (validateNumberInRange(number, 18, 45))
+			return number;
+		else
+			cout << "\nThe entered age is not valid.. Please try again\n";
+	} while (true);
+}
+
+void printResult(int age) {
+	cout << "\nYour age is; " << age << endl;
+}
+
+
+int main() {
+
+	printResult(readUntilNumberBetween(18, 45));
+
+	return 0;
+}
