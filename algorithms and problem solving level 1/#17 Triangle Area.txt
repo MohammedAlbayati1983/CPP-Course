@@ -1,0 +1,33 @@
+/*
+* Problem: write a program to Calculate triangle area then print it on the screen.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+void readSides(float& a, float& h) {
+	cout << "\nenter side A: ";
+	cin >> a;
+	cout << "\nenter side H: ";
+	cin >> h;
+}
+
+float triangleArea(float a, float h) {
+	float area = (a / 2) * h;
+	return area;
+}
+
+void printResult(float area) {
+	cout << "\nThe area of triangle is: " << area << endl;
+}
+
+
+int main() {
+
+	float a, h;
+	readSides(a, h);
+	printResult(triangleArea(a, h));
+
+	return 0;
+}
