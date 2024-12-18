@@ -1,0 +1,35 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int readPositiveNumber(string message) {
+	int number;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number < 0);
+
+	return number;
+}
+
+int factorial(int number) {
+	int f = 1;
+	for (int i = number; i > 1; i--) {
+		f *= i;
+	}
+	return f;
+}
+
+void printResult(int number) {
+	cout << "\nFactorial " << number << " is: " << factorial(number) << endl;
+}
+
+
+int main() {
+
+	int number = readPositiveNumber("Enter positive number: ");
+	printResult(number);
+
+	return 0;
+}
