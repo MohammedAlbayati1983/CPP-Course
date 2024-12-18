@@ -1,0 +1,33 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int readNumber() {
+	int number;
+	cout << "\nEnter your number: ";
+	cin >> number;
+	return number;
+}
+
+void powerOf2_3_4(int number, int& result1, int& result2, int& result3) {
+	result1 = number * number;
+	result2 = number * number * number;
+	result3 = number * number * number * number;
+
+}
+
+void printResult(int result1, int result2, int result3) {
+	cout << endl << result1;
+	cout << endl << result2;
+	cout << endl << result3 << endl;
+}
+
+
+int main() {
+
+	int result1, result2, result3;
+	powerOf2_3_4(readNumber(), result1, result2, result3);
+	printResult(result1, result2, result3);
+
+	return 0;
+}

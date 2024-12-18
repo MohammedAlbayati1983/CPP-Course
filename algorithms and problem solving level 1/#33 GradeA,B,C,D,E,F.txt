@@ -1,0 +1,45 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int readNumberInRange() {
+	int number;
+	do {
+		cout << "\nPlease enter grade btween 0 and 100: ";
+		cin >> number;
+		if (number >= 0 && number <= 100)
+			return number;
+		else
+			cout << "\nThe entered number is not valid.. Please try again\n";
+	} while (true);
+}
+
+char getGradeLetter(int grade) {
+	if (grade >= 90)
+		return 'A';
+	else if (grade >= 80)
+		return 'B';
+	else if (grade >= 70)
+		return 'C';
+	else if (grade >= 60)
+		return 'D';
+	else if (grade >= 50)
+		return 'E';
+	else
+		return 'F';
+}
+
+void printResult(char evaluation) {
+	if (evaluation == 'A' || evaluation == 'B' || evaluation == 'C' || evaluation == 'D' || evaluation == 'E')
+		cout << "\nCongratulation .. Your evaluation is: " << evaluation << endl;
+	else
+		cout<<"\nUnfortunately .. Your evaluation is: " << evaluation << endl;
+}
+
+
+int main() {
+
+	printResult(getGradeLetter(readNumberInRange()));
+
+	return 0;
+}

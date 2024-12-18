@@ -1,0 +1,42 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int readNumber() {
+	int number;
+	cout << "\nEnter your number: ";
+	cin >> number;
+	return number;
+}
+
+int readPower() {
+	int power;
+	cout << "\nEnter your power: ";
+	cin >> power;
+	return power;
+}
+
+int powerOfM(int number, int power) {
+	if (power == 0)
+		return 1;
+	int result = 1;
+	for (int i = 1; i <= power; i++) {
+		result *= number;
+	}
+	return result;
+}
+
+void printResult(int number, int power, int result) {
+	cout << "\nResult " << number << " power of " << power << " is: " << result << endl;
+}
+
+
+int main() {
+
+	int number = readNumber();
+	int power = readPower();
+	int result = powerOfM(number, power);
+	printResult(number, power, result);
+
+	return 0;
+}
