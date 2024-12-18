@@ -1,0 +1,24 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int readNumber() {
+	int number;
+	cout << "\nenter number: ";
+	cin >> number;
+	return number;
+}
+
+void printNumbersFrom1ToN(int number) {
+	for (int i = 1; i <= number; i++) {
+		cout << i << endl;
+	}
+}
+
+
+int main() {
+
+	printNumbersFrom1ToN(readNumber());
+
+	return 0;
+}
