@@ -1,0 +1,62 @@
+/*
+* Problem: write a program to ask the user to enter:
+* Number1
+* Number2
+* OperationType
+* Then perform the calculation to the operation type as follows:
+* '+' Add the two numbers
+* '-' Subtract the two numbers
+* '*' Multiply the two numbers
+* '7' Divide the two numbers
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+enum enOperationType { Add = '+', Subtract = '-', Multiply = '*', Divide = '/' };
+
+float readNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+enOperationType readOperationType() {
+	char operationType;
+	cout << "\nenter operationType (+,-,*,/): ";
+	cin >> operationType;
+	return (enOperationType)operationType;
+}
+
+float calculate(float number1, float number2, enOperationType operationType) {
+	switch (operationType)
+	{
+	case Add:
+		return number1 + number2;
+	case Subtract:
+		return number1 - number2;
+	case Multiply:
+		return number1 * number2;
+	case Divide:
+		return number1 / number2;
+	}
+}
+
+void printResult(float result) {
+	cout << "\nResult: " << result << endl;
+
+}
+
+
+int main() {
+
+	float number1 = readNumber("\nenter number 1: ");
+	float number2 = readNumber("\nenter number 2: ");
+	enOperationType operationType = readOperationType();
+	float result = calculate(number1, number2, operationType);
+	printResult(result);
+
+	return 0;
+}

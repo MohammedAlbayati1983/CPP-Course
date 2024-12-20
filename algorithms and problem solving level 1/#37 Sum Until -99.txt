@@ -1,0 +1,42 @@
+/*
+* Problem: write a program to read numbers form user and sum them, keep reading
+* until the user enters -99 then pint sum on screen.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+float readNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+float sumNumbers() {
+	float sum = 0, number;
+	int counter = 1;
+	do
+	{
+		number = readNumber("\nenter number " + to_string(counter) + ": ");
+		if (number == -99)
+			break;
+		sum += number;
+		counter++;
+	} while (number != -99);
+	return sum;
+}
+
+void printResult(float result) {
+	cout << "\nResult: " << result << endl;
+
+}
+
+
+int main() {
+
+	printResult(sumNumbers());
+
+	return 0;
+}

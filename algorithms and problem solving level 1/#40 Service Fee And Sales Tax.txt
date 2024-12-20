@@ -1,0 +1,41 @@
+/*
+* Problem: A restaurant cahrges 10% services and 16% sales tax.
+write a program to read BillValue and add service fee and sales tax to it, and print
+the TotalBill on the screen.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+float readPositiveNumber(string message) {
+	float number;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+
+	return number;
+}
+
+float totalBillAfterServiceAndTax(float totalBill) {
+	totalBill *= 1.1;
+	totalBill *= 1.16;
+	return totalBill;
+}
+
+void printTotalBill(float totalBill) {
+	cout << "\nTotal Bill is: " << totalBill << endl;
+	cout << "\nTotal Bill After Service Fee And Sales Tax is: " <<
+		totalBillAfterServiceAndTax(totalBill) << endl;
+}
+
+
+int main() {
+
+	float totalBill = readPositiveNumber("\nEnter Total Bill: ");
+	printTotalBill(totalBill);
+
+	return 0;
+}

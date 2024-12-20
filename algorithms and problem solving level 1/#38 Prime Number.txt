@@ -1,0 +1,50 @@
+/*
+* Problem: write a program to read number and check if it is a prime number or not.
+* Note: Prime number can only divide on one and on itself.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+enum enPrimeNotPrime { Prime = 1, NotPrime = 2 };
+
+float readPositiveNumber(string message) {
+	float number;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+
+	return number;
+}
+
+enPrimeNotPrime checkPrime(int number) {
+	int m = round(number / 2);
+	for (int i = 2; i <= m; i++) {
+		if (number % i == 0)
+			return NotPrime;
+	}
+	return Prime;
+}
+
+void printNumberType(int number) {
+	switch (checkPrime(number))
+	{
+	case Prime:
+		cout << "\nThe number is Prime.\n";
+		break;
+	case NotPrime:
+		cout << "\nThe number is not Prime.\n";
+		break;
+	}
+}
+
+
+int main() {
+
+	printNumberType(readPositiveNumber("\nenter positive number: "));
+
+	return 0;
+}
