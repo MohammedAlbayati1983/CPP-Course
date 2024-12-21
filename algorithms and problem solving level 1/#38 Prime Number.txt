@@ -29,7 +29,7 @@ enPrimeNotPrime checkPrime(int number) {
 	return Prime;
 }
 
-void printNumberType(int number) {
+void printNumberType(int number) {//we can also solve it with if() statement.
 	switch (checkPrime(number))
 	{
 	case Prime:
