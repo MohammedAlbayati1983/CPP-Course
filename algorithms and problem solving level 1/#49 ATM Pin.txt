@@ -1,0 +1,45 @@
+/*
+* Problem: write a program to read the ATM Pin code from the user, them check if Pin
+code = 1234, then show the balance to user, Otherwise print (Wrong Pin) and ask the
+user to enter Pin Code again.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+string readPinCode() {
+	string pinCode;
+	cout << "\nEnter pin code: ";
+	cin >> pinCode;
+	return pinCode;
+}
+
+bool login() {
+	string pinCode;
+	do
+	{
+		pinCode = readPinCode();
+		if (pinCode == "1234")
+			return 1;
+		else {
+			system("color 4F");//turn screen to red
+			cout << "\a\nWrong Pin code!! try again.\n";
+		}
+	} while (pinCode != "1234");
+	return 0;
+}
+
+void printResult() {
+	if (login()) {
+		system("color 2F");//turn screen to green
+		cout << "\nYour account balance is: " << 7500 << endl;
+	}
+}
+
+int main() {
+
+	printResult();
+
+	return 0;
+}

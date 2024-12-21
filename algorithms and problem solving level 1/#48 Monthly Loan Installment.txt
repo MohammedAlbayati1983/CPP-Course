@@ -1,0 +1,36 @@
+/*
+* Problem: write a program to read a LoanAmount and ask you how many months you need
+to settle the loan, then calculate the monthly installment amount.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+float readPositiveNumber(string message) {
+	float number;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+
+	return number;
+}
+
+float monthlyInstallment(float loanAmount,float howManyMonths){
+	return (float)loanAmount / howManyMonths;
+}
+
+void printResult(float loanAmount,float howManyMonths){
+	cout << "\nMonthly installment is: " << monthlyInstallment(loanAmount, howManyMonths) << endl;
+}
+
+int main() {
+
+	float loanAmount = readPositiveNumber("\nEnter loan amonunt: ");
+	float howManyMonths = readPositiveNumber("\nEnter how many months: ");
+	printResult(loanAmount, howManyMonths);
+
+	return 0;
+}
