@@ -1,0 +1,62 @@
+/*
+* Problem: write a program to ask the user to enter: Day
+* Then print the day as follows:
+* 1 print Sunday
+* 2 print Monday
+* 3 print Tuesday
+* 4 print Wednesday
+* 5 print Thursday
+* 6 print Friday
+* 7 print Saturday
+* Otherwise print "Wrong Day" and ask the user to enter the day again.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+enum enDayOfWeek { Sun = 1, Mon = 2, Tue = 3, Wed = 4, Thu = 5, Fri = 6, Sat = 7 };
+
+int readNumberInRange(string message, int from, int to) {
+	int number;
+	do
+	{
+		cout << message << endl;
+		cin >> number;
+		if (number >= from && number <= to)
+			return number;
+		else
+			cout << "\nNot a valid day" << endl;
+	} while (number<from || number>to);
+}
+
+enDayOfWeek readDayOfWeek() {
+	return (enDayOfWeek)readNumberInRange("\nEnter day number: ", 1, 7);
+}
+
+string getDayOfWeek(enDayOfWeek day) {
+	switch (day)
+	{
+	case Sun:
+		return "Sunday";
+	case Mon:
+		return "Monday";
+	case Tue:
+		return "Tuesday";
+	case Wed:
+		return "Wednesday";
+	case Thu:
+		return "Thursday";
+	case Fri:
+		return "Friday";
+	case Sat:
+		return "Saturday";
+	}
+}
+
+int main() {
+
+	cout << getDayOfWeek(readDayOfWeek()) << endl;
+
+	return 0;
+}

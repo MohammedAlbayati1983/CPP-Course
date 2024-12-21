@@ -1,0 +1,57 @@
+/*
+* Problem: write a program that inputs the number of seconds and change it to days, 
+hours, minutes and seconds.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+struct stTaskDuration {
+	int numberOfDays, numberOfHours, numberOfMinutes, numberOfSeconds;
+};
+
+float readPositiveNumber(string message) {
+	float number;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+
+	return number;
+}
+
+stTaskDuration secondsToTaskDuration(int totalSeconds) {
+	stTaskDuration taskDuration;
+	const int secondsPerDay = 24 * 60 * 60;
+	const int secondsPerHour = 60 * 60;
+	const int secondsPerMinute = 60;
+
+	int remainder = 0;
+	taskDuration.numberOfDays = floor(totalSeconds / secondsPerDay);
+	remainder = totalSeconds % secondsPerDay;
+	taskDuration.numberOfHours = floor(remainder / secondsPerHour);
+	remainder = remainder % secondsPerHour;
+	taskDuration.numberOfMinutes = floor(remainder / secondsPerMinute);
+	remainder = remainder % secondsPerMinute;
+	taskDuration.numberOfSeconds = remainder;
+
+	return taskDuration;
+}
+
+void printTaskDurationDetails(stTaskDuration taskDuration) {
+	cout << "\n" << taskDuration.numberOfDays << ':'
+		<< taskDuration.numberOfHours << ':'
+		<< taskDuration.numberOfMinutes << ':'
+		<< taskDuration.numberOfSeconds << endl;
+}
+
+
+int main() {
+
+	int totalSeconds = readPositiveNumber("\nEnter total seconds: ");
+	printTaskDurationDetails(secondsToTaskDuration(totalSeconds));
+
+	return 0;
+}

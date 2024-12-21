@@ -1,0 +1,57 @@
+/*
+* Problem: write a program to calculate the task duration in seconds and print it
+on screen
+-> Given the time duration of a task in the number of day, hours, minutes and seconds..
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+struct stTaskDuration {
+	int numberOfDays, numberOfHours, numberOfMinutes, numberOfSeconds;
+};
+
+float readPositiveNumber(string message) {
+	float number;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+
+	return number;
+}
+
+stTaskDuration readTaskDuration() {
+	stTaskDuration taskDuration;
+	taskDuration.numberOfDays = readPositiveNumber("\nEnter number of days: ");
+	taskDuration.numberOfHours = readPositiveNumber("\nEnter number of hours: ");
+	taskDuration.numberOfMinutes = readPositiveNumber("\nEnter number of minutes: ");
+	taskDuration.numberOfSeconds = readPositiveNumber("\nEnter number of seconds: ");
+
+	return taskDuration;
+}
+
+int taskDurationInSeconds(stTaskDuration taskDuration) {
+	int durationInSeconds = 0;
+	durationInSeconds = taskDuration.numberOfDays * 24 * 60 * 60;
+	durationInSeconds += taskDuration.numberOfHours * 60 * 60;
+	durationInSeconds += taskDuration.numberOfMinutes * 60;
+	durationInSeconds += taskDuration.numberOfSeconds;
+
+	return durationInSeconds;
+}
+
+void printResult(int durationInSeconds) {
+	cout << "\nTask duration in seconds: " << durationInSeconds << endl;
+}
+
+
+int main() {
+
+	int durationInSeconds = taskDurationInSeconds(readTaskDuration());
+	printResult(durationInSeconds);
+
+	return 0;
+}

@@ -1,0 +1,41 @@
+/*
+* Problem: write a program to read a NumberOfHours and calculates the number of
+weeks, and days included in that number.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+float readPositiveNumber(string message) {
+	float number;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+
+	return number;
+}
+
+float hoursToDays(float numberOfHours) {
+	return numberOfHours / 24;
+}
+
+float hoursToWeeks(float numberOfHours) {
+	return (float)numberOfHours / 24 / 7;
+}
+
+void printResult(float numberOfHours) {
+	cout << "\nTotal of days is: " << hoursToDays(numberOfHours) << endl;
+	cout << "\nTotal of weeks is: " << hoursToWeeks(numberOfHours) << endl;
+}
+
+
+int main() {
+
+	float numberOfHours = readPositiveNumber("\nEnter number of hours: ");
+	printResult(numberOfHours);
+
+	return 0;
+}

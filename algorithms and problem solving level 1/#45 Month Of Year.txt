@@ -1,0 +1,77 @@
+/*
+* Problem: write a program to ask the user to enter: Month
+* Then print the Month as follows:
+* 1 print January
+* 2 print February
+* 3 print March
+* 4 print April
+* 5 print May
+* 6 print June
+* 7 print July
+* 8 print August
+* 9 print September
+* 10 print October
+* 11 print November
+* 12 print December
+* Otherwise print "Wrong Month" and ask the user to enter the month again.
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+enum enMonthOfYear { Jan = 1, Feb = 2, Mar = 3, Apr = 4, May = 5, Jun = 6, Jul = 7, Aug = 8, Sep = 9, Oct = 10, Nov = 11, Dec = 12 };
+
+int readNumberInRange(string message, int from, int to) {
+	int number;
+	do
+	{
+		cout << message << endl;
+		cin >> number;
+		if (number >= from && number <= to)
+			return number;
+		else
+			cout << "\nNot a valid month" << endl;
+	} while (number<from || number>to);
+}
+
+enMonthOfYear readMonthOfYear() {
+	return (enMonthOfYear)readNumberInRange("\nEnter month number: ", 1, 12);
+}
+
+string getMonthOfYear(enMonthOfYear month) {
+	switch (month)
+	{
+	case Jan:
+		return "January";
+	case Feb:
+		return "February";
+	case Mar:
+		return "March";
+	case Apr:
+		return "April";
+	case May:
+		return "May";
+	case Jun:
+		return "June";
+	case Jul:
+		return "July";
+	case Aug:
+		return "August";
+	case Sep:
+		return "September";
+	case Oct:
+		return "October";
+	case Nov:
+		return "November";
+	case Dec:
+		return "December";
+	}
+}
+
+int main() {
+
+	cout << getMonthOfYear(readMonthOfYear()) << endl;
+
+	return 0;
+}
