@@ -1,3 +1,8 @@
+/*
+* Problem: write a program to fill array with random numbers from
+1 to N, then print sum of all numbers.
+*/
+
 #include <iostream>
 using namespace std;
 
