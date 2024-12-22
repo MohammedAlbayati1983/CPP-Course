@@ -1,3 +1,7 @@
+/*
+* Problem: write a program to read how many keys to generate and print them on the screen.
+*/
+
 #include <iostream>
 #include<cstdlib>
 using namespace std;
