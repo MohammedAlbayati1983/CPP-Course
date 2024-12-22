@@ -1,3 +1,8 @@
+/*
+* Problem: write a program to fill array with random numbers from
+1 to N, copy only prime numbers to another array and print it.
+*/
+
 #include <iostream>
 using namespace std;
 
