@@ -1,3 +1,7 @@
+/*
+* Problem: write a program to read a text and encrypt it, decrypt it.
+*/
+
 #include <iostream>
 #include <string>
 using namespace std;
