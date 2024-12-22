@@ -1,0 +1,47 @@
+/*
+* Problem: write a program to read a number and a digit, then print digit frequecy in
+that number.
+*/
+#include <iostream>
+#include <string>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+	int number = 0;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+	return number;
+}
+
+int countDigitFrequency(int number, short digitToCheck)
+{
+	int freqCount = 0, remainder = 0;
+	while (number > 0)
+	{
+		remainder = number % 10;
+		number = number / 10;
+		if (digitToCheck == remainder)
+		{
+			freqCount++;
+		}
+	}
+	return freqCount;
+}
+
+void printResult(int number, short digitToCheck) {
+	cout << "\nDigit " << digitToCheck << " Frequency is "
+		<< countDigitFrequency(number, digitToCheck) << " Time(s).\n";
+}
+
+int main()
+{
+	int number = readPositiveNumber("\nPlease enter a positive number: ");
+	short digitToCheck = readPositiveNumber("\nPlease enter one digit to check: ");
+	printResult(number, digitToCheck);
+
+	return 0;
+}

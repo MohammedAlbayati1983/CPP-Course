@@ -1,0 +1,44 @@
+/*
+* Problem: write a program to check if the number is perfect or not?
+* Note: Perfect Number = sum (all divisors with out remain).
+* ex: 6 = 1+2+3 is perfect number
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+	int number = 0;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+	return number;
+}
+
+bool isPerfectNumber(int number)
+{
+	int sum = 0;
+	for (int i = 1; i < number; i++)
+	{
+		if (number % i == 0)
+			sum += i;
+	}
+	return number == sum;
+}
+
+void printResults(int number)
+{
+	if (isPerfectNumber(number))
+		cout << endl << number << " Is Perfect Number.\n";
+	else
+		cout << endl << number << " Is NOT Perfect Number.\n";
+}
+int main()
+{
+	printResults(readPositiveNumber("Please enter a positive number: "));
+	return 0;
+}

@@ -1,0 +1,43 @@
+/*
+* Problem: write a program to read a number and print inverted pattern as follows:
+1
+22
+333
+4444
+55555
+666666
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+	int number = 0;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+	return number;
+}
+
+void printNumberPattern(int Number)
+{
+	cout << "\n";
+	for (int i = 1; i <= Number; i++)
+	{
+		for (int j = 1; j <= i; j++)
+		{ 
+			cout << i;
+		}
+		cout << "\n";
+	}
+}
+
+int main()
+{
+	printNumberPattern(readPositiveNumber("\nPlease enter a positive number: "));
+	return 0;
+}

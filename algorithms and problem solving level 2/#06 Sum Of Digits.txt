@@ -1,0 +1,42 @@
+/*
+* Problem: write a program to read a number and print sum of its digits.
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+	int number = 0;
+	do
+	{
+		cout << message;
+		cin >> number;
+	} while (number <= 0);
+	return number;
+}
+
+int sumOfDigits(int number)
+{
+	int sum = 0, remainder = 0;
+	while (number > 0)
+	{
+		remainder = number % 10;
+		number = number / 10;
+		sum = sum + remainder;
+	}
+	return sum;
+}
+
+void printResult(int number) {
+	cout << "\nSum Of Digits = " << number << endl;
+}
+
+int main()
+{
+	int number = sumOfDigits(readPositiveNumber("Please enter a positive number: "));
+	printResult(number);
+	return 0;
+}
+
