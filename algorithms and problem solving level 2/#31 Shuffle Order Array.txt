@@ -1,3 +1,8 @@
+/*
+* Problem: write a program to fill array with ordered numbers from 1 to N. then print 
+* it, after that shuffle this array and print it after shuffle.
+*/
+
 #include <iostream>
 using namespace std;
 
